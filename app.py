@@ -6,15 +6,29 @@ import joblib
 import io
 import os
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
 def main():
 
     st.title("Classificazione Iris")
 
     newmodel = joblib.load("Classification_iris.pkl")
-    sepal_lenght = st.number_input("sepal length", 1,10,3.0)
-    sepal_width = st.number_input("sepal width", 1,10,3.0)
-    petal_lenght = st.number_input("petal length", 1,10,3.0)
-    petal_width = st.number_input("petal width", 1,10,3.0)
+    sepal_lenght = st.number_input("sepal length", 1.0,10.0,3.0)
+    sepal_width = st.number_input("sepal width", 1.0,10.0,3.0)
+    petal_lenght = st.number_input("petal length", 1.0,10.0,3.0)
+    petal_width = st.number_input("petal width", 1.0,10.0,3.0)
     res = newmodel.predict([[sepal_lenght,sepal_width, petal_lenght, petal_width]])[0]
     st.write(f"Classification iris: {res}")
 
@@ -51,5 +65,6 @@ def main():
             mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     )
     #fine
+    add_bg_from_url()
 if __name__ == "__main__":
     main()
