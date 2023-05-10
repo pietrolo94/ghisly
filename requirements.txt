@@ -5,4 +5,3 @@ xlsxwriter
 numpy
 matplotlib
 openpyxl
-warnings
