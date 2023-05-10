@@ -11,7 +11,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://w.wallhaven.cc/full/zy/wallhaven-zyxvqy.jpg");
+             background-image: url("https://w.wallhaven.cc/full/qz/wallhaven-qzdqvr.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
