@@ -11,10 +11,10 @@ def main():
     st.title("Classificazione Iris")
 
     newmodel = joblib.load("Classification_iris.pkl")
-    sepal_lenght = st.number_input("sepal length", value= 0.0)
-    sepal_width = st.number_input("sepal width", value=0.0)
-    petal_lenght = st.number_input("petal length", value=0.0)
-    petal_width = st.number_input("petal width", value=0.0)
+    sepal_lenght = st.number_input("sepal length", 1,10,3)
+    sepal_width = st.number_input("sepal width", 1,10,3)
+    petal_lenght = st.number_input("petal length", 1,10,3)
+    petal_width = st.number_input("petal width", 1,10,3)
     res = newmodel.predict([[sepal_lenght,sepal_width, petal_lenght, petal_width]])[0]
     st.write(f"Classification iris: {res}")
 
@@ -47,7 +47,7 @@ def main():
         st.download_button(
             label="Scarica file Excel",
             data=output,
-            file_name='Profit_prediction.xlsx',
+            file_name='Iris_prediction.xlsx',
             mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     )
     #fine
